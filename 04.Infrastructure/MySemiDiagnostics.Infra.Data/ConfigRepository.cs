@@ -1,14 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using MySemiDiagnostics.Domain.Core;
+using MySemiDiagnostics.Interfaces;
 
 namespace MySemiDiagnostics.Infra.Data;
-
-public interface IConfigRepository
-{
-    Task<List<SubsystemConfig>> LoadAllConfigurationsAsync();
-    Task SaveConfigurationAsync(SubsystemConfig config);
-    Task<T?> GetDeviceConfigAsync<T>(int id) where T : DeviceConfig;
-}
 
 public class ConfigRepository : IConfigRepository
 {
@@ -28,7 +22,15 @@ public class ConfigRepository : IConfigRepository
 
     public async Task SaveConfigurationAsync(SubsystemConfig config)
     {
-        _context.Subsystems.Update(config);
+        var exists = await _context.Subsystems.AnyAsync(s => s.Id == config.Id);
+        if (exists)
+        {
+            _context.Subsystems.Update(config);
+        }
+        else
+        {
+            _context.Subsystems.Add(config);
+        }
         await _context.SaveChangesAsync();
     }
 

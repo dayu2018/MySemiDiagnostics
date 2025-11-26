@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\02.Application\MySemiDiagnostics.Interfaces\MySemiDiagnostics.Interfaces.csproj" />
     <ProjectReference Include="..\..\03.Domain\MySemiDiagnostics.Domain.Core\MySemiDiagnostics.Domain.Core.csproj" />
   </ItemGroup>
 

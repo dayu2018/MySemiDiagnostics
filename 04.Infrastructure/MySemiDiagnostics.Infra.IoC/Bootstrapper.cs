@@ -1,6 +1,7 @@
 using Autofac;
 using Microsoft.EntityFrameworkCore;
 using MySemiDiagnostics.Infra.Data;
+using MySemiDiagnostics.Interfaces;
 
 namespace MySemiDiagnostics.Infra.IoC;
 
