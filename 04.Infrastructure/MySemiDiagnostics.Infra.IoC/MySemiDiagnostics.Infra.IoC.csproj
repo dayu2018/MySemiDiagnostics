@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\02.Application\MySemiDiagnostics.Interfaces\MySemiDiagnostics.Interfaces.csproj" />
+    <ProjectReference Include="..\..\01.Presentation\MySemiDiagnostics.Modules.Motion\MySemiDiagnostics.Modules.Motion.csproj" />
+    <ProjectReference Include="..\MySemiDiagnostics.Infra.Data\MySemiDiagnostics.Infra.Data.csproj" />
+  </ItemGroup>
+
+</Project>
